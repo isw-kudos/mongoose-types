@@ -1,0 +1,11 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "checkJs": false,
+    "noImplicitAny": false,
+    "removeComments": true
+  },
+  "files": ["index.ts"],
+  "exclude": ["node_modules"]
+}
