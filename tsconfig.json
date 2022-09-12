@@ -6,6 +6,6 @@
     "noImplicitAny": false,
     "removeComments": true
   },
-  "files": ["index.ts"],
+  "files": [],
   "exclude": ["node_modules"]
 }

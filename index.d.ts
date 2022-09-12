@@ -1,3 +1,9 @@
+// Type definitions for Mongoose 6.x
+// Definitions by ISW Huddo
+// TypeScript Version: 4.8
+
+/// <reference types="mongodb" />
+
 declare module 'mongoose' {
   import mongodb = require('mongodb');
 

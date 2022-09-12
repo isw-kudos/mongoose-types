@@ -29,13 +29,10 @@ __metadata:
   dependencies:
     "@huddo/eslint-config-node": ^1.1.1
     "@tsconfig/node16": ^1.0.3
+    "@types/mongodb": "*"
     eslint-plugin-import: ^2.26.0
     eslint-plugin-typescript: ^0.14.0
-    mongodb: ^4.9.1
     typescript: ^4.8.3
-  dependenciesMeta:
-    mongodb:
-      optional: true
   languageName: unknown
   linkType: soft
 
@@ -50,6 +47,15 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
+  languageName: node
+  linkType: hard
+
+"@types/mongodb@npm:*":
+  version: 4.0.6
+  resolution: "@types/mongodb@npm:4.0.6"
+  dependencies:
+    mongodb: "*"
+  checksum: b0f138120920965b14f30f92d64979a8c6cce0dee195d028255441a3c9b42a5ed531ddbdfcdee04bf2021a007dc16467dd5d13e2158c16ada254b29d29569e1d
   languageName: node
   linkType: hard
 
@@ -664,7 +670,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mongodb@npm:^4.9.1":
+"mongodb@npm:*":
   version: 4.9.1
   resolution: "mongodb@npm:4.9.1"
   dependencies:

@@ -1,26 +1,25 @@
 {
   "name": "@huddo/mongoose-types",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Opinionated, simplified types for mongoose.js",
   "author": "ISW Huddo",
-  "packageManager": "yarn@3.2.3",
-  "license": "propietary",
+  "license": "proprietary",
   "main": "",
-  "types": "mongoose.d.ts",
+  "types": "index.d.ts",
   "homepage": "https://github.com/isw-kudos/mongoose-types#readme",
   "repository": "git@github.com:isw-kudos/mongoose-types.git",
   "bugs": {
     "url": "https://github.com/isw-kudos/mongoose-types/issues"
   },
-  "optionalDependencies": {
-    "mongodb": "^4.9.1"
+  "dependencies": {
+    "@types/mongodb": "*"
   },
-  "dependencies": {},
   "devDependencies": {
     "@huddo/eslint-config-node": "^1.1.1",
     "@tsconfig/node16": "^1.0.3",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-typescript": "^0.14.0",
     "typescript": "^4.8.3"
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
