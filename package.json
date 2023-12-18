@@ -1,7 +1,7 @@
 {
   "name": "@huddo/mongoose-types",
-  "version": "1.0.0",
-  "description": "Opinionated, simplified types for mongoose.js",
+  "version": "2.0.0",
+  "description": "Opinionated, simplified types for mongoose.js (v8)",
   "author": "ISW Huddo",
   "license": "proprietary",
   "main": "",

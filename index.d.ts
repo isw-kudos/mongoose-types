@@ -4,8 +4,8 @@
 
 /// <reference types="mongodb" />
 
-declare module 'mongoose' {
-  import mongodb = require('mongodb');
+declare module "mongoose" {
+  import mongodb = require("mongodb");
 
   export class Schema {
     static Types: {
@@ -42,7 +42,8 @@ declare module 'mongoose' {
   export class Document<T> {
     constructor(data: Partial<T>);
     save(): Promise<this>;
-    remove(): Promise<this>;
+    deleteOne(): Promise<DeletedResult>;
+    updateOne(update: object): Promise<this>;
     isSelected(key: string): boolean;
     isModified(key?: string): boolean;
     isNew: boolean;
@@ -125,7 +126,7 @@ declare module 'mongoose' {
     on(key: string, cb: (error?: object) => void): void;
     find(query: object, select?: string, options?: object): MultiQuery<T>;
     findOne(query: object, select?: string, options?: object): SingleQuery<T>;
-    findOneAndRemove(query: object, options?: object): SingleQuery<T>;
+    findOneAndDelete(query: object, options?: object): SingleQuery<T>;
     findOneAndUpdate(
       query: object,
       update: object,
@@ -137,15 +138,13 @@ declare module 'mongoose' {
       update: object,
       options?: object
     ): SingleQuery<T>;
-    findByIdAndRemove(
+    findByIdAndDelete(
       id: string | mongodb.ObjectId,
       options?: object
     ): SingleQuery<T>;
     create(doc: object, options?: object): Promise<HydratedDocument<T>>;
-    update(query: object, update: object, options?: object): MutationQuery;
     updateOne(query: object, update: object, options?: object): MutationQuery;
     updateMany(query: object, update: object, options?: object): MutationQuery;
-    remove(query: object, options?: object): MutationQuery;
     deleteOne(query: object, options?: object): DeletionQuery;
     deleteMany(query: object, options?: object): DeletionQuery;
     countDocuments(query: object): { exec(): Promise<number> };
@@ -157,14 +156,14 @@ declare module 'mongoose' {
     // basic patch
     schema: {
       eachPath: (
-        cb: (pathname: string, schemaType: { options?: any }) => void
+        fn: (pathname: string, schemaType: { options?: any }) => void
       ) => void;
     };
   }
 
   namespace mongoose {
     function connect(uri: string, options?: any): Promise<any>;
-    function disconnect(cb: () => void): void;
+    function disconnect(): Promise<void>;
 
     // eslint-disable-next-line no-use-before-define
     const connection: Connection;
@@ -174,7 +173,7 @@ declare module 'mongoose' {
       host: string;
       on(eventName: string, cb: (data?: object) => void): void;
       off(eventName: string, cb: (data?: object) => void): void;
-      close(cb: () => void): void;
+      close(force?: boolean): Promise<void>;
     }
 
     namespace Types {
